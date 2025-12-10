@@ -16,9 +16,9 @@ export class StudentManager {
     return this.students.find((s) => s.id === id);
   }
 
-  findStudentsByName(name: string): Student[] {
+  findStudentsByName(first_name: string): Student[] {
     return this.students.filter((s) =>
-      s.first_name.toLowerCase().includes(name.toLowerCase())
+      s.first_name.toLowerCase().includes(first_name.toLowerCase())
     );
   }
 
