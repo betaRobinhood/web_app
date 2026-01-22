@@ -1,5 +1,5 @@
-import { camera } from "ionicons/icons";
-import { usePhotoGallery } from "../hooks/usePhotoGallery";
+import { camera } from 'ionicons/icons';
+// CHANGE: Update import
 import {
   IonContent,
   IonHeader,
@@ -9,16 +9,17 @@ import {
   IonFab,
   IonFabButton,
   IonIcon,
-  IonLabel,
   IonGrid,
   IonRow,
   IonCol,
   IonImg,
-} from "@ionic/react";
-import "./Tab2.css";
+} from '@ionic/react';
+import { usePhotoGallery } from '../hooks/usePhotoGallery';
 
 const Tab2: React.FC = () => {
+  // CHANGE: Add `photos` array to destructure from `usePhotoGallery()`
   const { photos, addNewToGallery } = usePhotoGallery();
+
   return (
     <IonPage>
       <IonHeader>
@@ -35,11 +36,13 @@ const Tab2: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
+        {/* CHANGE: Add a grid component to display the photos */}
         <IonGrid>
           <IonRow>
+            {/* CHANGE: Create a new column and image component for each photo */}
             {photos.map((photo) => (
               <IonCol size="6" key={photo.filepath}>
-                <IonImg src="{photo.webviewpath}" />
+                <IonImg src={photo.webviewPath} />
               </IonCol>
             ))}
           </IonRow>
@@ -54,5 +57,4 @@ const Tab2: React.FC = () => {
     </IonPage>
   );
 };
-
 export default Tab2;
